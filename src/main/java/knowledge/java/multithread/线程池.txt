@@ -1,0 +1,47 @@
+https://zhuanlan.zhihu.com/p/123328822
+
+总体设计:
+      Executor
+         |
+   ExecutorService  ->
+         |
+ AbstractExecutorService
+         |
+ ThreadPoolExecutor  -> 将任务提交和任务执行解耦
+
+生命周期管理:一个变量维护两个值，运行状态(runState),线程数量(workerCount)
+5中运行状态
+1. Running
+2. Shutdown
+3. Stop
+4. Tidying
+5. Terminated
+
+阻塞队列成员
+1. ArrayBlockingQueue 有界
+2. LinkedBlockingQueue 有界，默认长度Integer.MAX_VALUE
+3. PriorityBlockingQueue 无界，支持线程优先级排序，默认自然序排序
+4. DelayQueue 延迟获取误解队列
+5. SynchronousQueue 不存储元素的阻塞队列
+6. LinkedTransferQueue
+7. LinkedBlockingDeque
+
+4种拒绝策略
+
+
+线程池在业务中的实践
+1. 快速响应用户请求，这种场景最重要的时获取最大的响应速度去满足用户，
+   所以应该不设置队列去缓冲并发任务。调高corePoolSize和maxPoolSize去
+   尽可能多的创造多的线程快速执行任务。
+2. 快速批处理任务，这种场景任务量巨大，并不需要瞬时完成，尽可能在单位时间内处理更多的任务
+   也就是吞吐量优先的问题，应该设置队列去缓冲并发任务，防止过多的线程上下文切换。
+
+能否不用线程池
+1. Disruptor框架
+2. Actor框架
+3. 协程框架
+
+
+
+
+

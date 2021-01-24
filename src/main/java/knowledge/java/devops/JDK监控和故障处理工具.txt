@@ -1,0 +1,22 @@
+1. jps 查看所有JAVA进程
+例: jps -l 输出主类的全名
+    jps -v 输出虚拟机进程启动时JVM参数
+
+2. jstat (java statistics monitoring tool) 监视虚拟机各种运行状态信息
+例: jstat -gc -h 31736 1000 10 分析进程31736的GC情况，每隔1000ms打印一次记录，打印10次停止。
+
+3. jinfo 实时查看和调整虚拟机各项参数
+例:
+
+4. jmap (memory map for java) 生成堆转储快照
+例：jmap -dump:format=b,file=/tmp/my_heap_dump.txt 35
+    jmap -heap pid
+
+5. jhat 分析heapdump文件
+
+6. jstack 生成虚拟机当前时刻的线程快照
+线程快照就是当前虚拟机内每一条线程正在执行的方法堆栈的集合。
+用于定位
+1. 线程长时间出现停顿的原因
+   如，线程间死锁，死循环，请求外部资源导致长时间等待
+例

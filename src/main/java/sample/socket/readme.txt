@@ -1,0 +1,1 @@
+java -classpath /mnt/e/Workspace/Interview-Personal/target/classes sample.socket.bio.SingleThreadDayTimeServer
