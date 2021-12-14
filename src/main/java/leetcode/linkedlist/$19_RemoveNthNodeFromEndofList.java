@@ -2,6 +2,10 @@ package leetcode.linkedlist;
 
 public class $19_RemoveNthNodeFromEndofList {
 
+     /*
+     20210206
+     */
+
     public class ListNode {
         int val;
         ListNode next;
